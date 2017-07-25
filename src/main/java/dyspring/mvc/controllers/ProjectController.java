@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import dyspring.mvc.data.entities.Project;
 import dyspring.mvc.data.invalidators.ProjectValidator;
@@ -103,7 +104,7 @@ public class ProjectController {
 	}
 	
 	@RequestMapping(value="/add")
-	public String saveProject(@Valid @ModelAttribute Project project, Errors errors) {
+	public String saveProject(@Valid @ModelAttribute Project project, Errors errors, RedirectAttributes attribute) {
 		System.out.println("invoking saveProject");
 		if(!errors.hasErrors()) {
 			System.out.println("The project name is validated.");
@@ -111,8 +112,11 @@ public class ProjectController {
 			System.out.println("The project name did not validate!");
 			return "add_project";
 		}
+		project.setProjectId(55L);
 		System.out.println(project);
-		return "redirect:/project/add";
+		this.projectservice.save(project);
+		attribute.addAttribute("projectId", project.getProjectId().toString());
+		return "redirect:/";
 	}
 	
 //	@RequestMapping(value="/save")

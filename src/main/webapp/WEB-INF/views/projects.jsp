@@ -24,13 +24,12 @@
 		<table class="table table-hover">
 			<tbody>
 				<tr>
-					<th>Name</th><th>Sponsor</th><th>Description</th>
+					<th>Name</th><th>Sponsor Name</th><th>Description</th>
 				</tr>
 				<c:forEach items="${projects}" var="project">
 					<tr>
-						<td><a href="<spring:url 
-							value="/project/${project.projectId}"/>">${project.name}</a></td>
-						<td>${project.sponsor}</td>
+						<td><a href="<spring:url value="/project/${project.projectId}"/>">${project.name}</a></td>
+						<td>${project.sponsor.name}</td>
 						<td>${project.description}</td>
 					</tr>	
 				</c:forEach>

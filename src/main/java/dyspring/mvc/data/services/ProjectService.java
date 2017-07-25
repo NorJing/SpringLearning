@@ -48,4 +48,8 @@ public class ProjectService {
 		project.setSponsor(sponsor);
 		return project;
 	}
+	
+	public void save(Project project) {
+		this.projects.add(project);
+	}
 }

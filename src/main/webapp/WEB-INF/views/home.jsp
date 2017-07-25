@@ -22,7 +22,7 @@
 		<h2>Current Project</h2>
 		<ul class="list-group">
   			<li class="list-group-item"><label>Project Name:</label><span>${currentProject.name}</span></li>
-  			<li class="list-group-item"><label>Sponsor:</label><span>${currentProject.sponsor.name}</span></li>
+  			<li class="list-group-item"><label>Sponsor Name:</label><span>${currentProject.sponsor.name}</span></li>
   			<li class="list-group-item"><label>Description:</label><br/><span>${currentProject.description}</span></li>
 		</ul>
 		

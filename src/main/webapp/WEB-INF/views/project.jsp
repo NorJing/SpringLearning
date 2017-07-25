@@ -33,8 +33,8 @@
 				</div>
 							
 				<div class="form-group">
-					<label for="sponsor">Sponsor</label>
-					<span>${project.sponsor}</span>
+					<label for="sponsor">Sponsor Name</label>
+					<span>${project.sponsor.name}</span>
 				</div>
 			
 				<div class="form-group">
