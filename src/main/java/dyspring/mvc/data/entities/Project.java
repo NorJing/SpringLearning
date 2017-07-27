@@ -7,7 +7,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-@XmlRootElement(name="project")
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+//@XmlRootElement(name="project")
 public class Project {
 	private Long projectId;
 	

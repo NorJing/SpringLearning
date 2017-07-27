@@ -61,13 +61,19 @@ public class ProjectController {
 		return "projects";
 	}
 	
+//	@RequestMapping(value="/{projectId}")
+//	public String findByProjectId(Model model, @PathVariable("projectId") Long projectId) {
+//		model.addAttribute("project", this.projectservice.find(projectId));
+//		return "project";
+//	}
+
 	@RequestMapping(value="/{projectId}")
-	public String findByProjectId(Model model, @PathVariable("projectId") Long projectId) {
-		model.addAttribute("project", this.projectservice.find(projectId));
-		return "project";
+	@ResponseBody
+	public Project findByProjectId(@PathVariable("projectId") Long projectId) {
+		return this.projectservice.find(projectId);
 	}
 	
-	@RequestMapping(value="/find/{projectId}")
+	@RequestMapping(value="/find/{projectId}") 
 	@ResponseBody
 	public Project findByProjectIdDifferentFormat(@PathVariable("projectId") Long projectId) {
 		return this.projectservice.find(projectId);
@@ -132,14 +138,5 @@ public class ProjectController {
 //		status.setComplete();
 //		return "redirect:/project/add";
 //	}
-	
-	@InitBinder
-	public void initBinder(WebDataBinder binder) {
-		binder.addValidators(new ProjectValidator());
-	}
 
-	@ExceptionHandler(NullPointerException.class)
-	public String handleError(HttpServletRequest request) {
-		return "controller_error";
-	}
 }

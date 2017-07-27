@@ -28,7 +28,7 @@ public class GlobalInterceptor extends HandlerInterceptorAdapter {
 		// TODO Auto-generated method stub
 		this.hitCounter.setHits(this.hitCounter.getHits() + 1);
 		System.out.println("Hits=" + this.hitCounter.getHits());
-		request.setAttribute("currentTime", new Date());
+//		request.setAttribute("currentTime", new Date());
 		return super.preHandle(request, response, handler);
 	}
 }
