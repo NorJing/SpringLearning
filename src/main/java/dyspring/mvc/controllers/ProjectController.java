@@ -73,10 +73,11 @@ public class ProjectController {
 		return this.projectservice.find(projectId);
 	}
 	
+	// Use Converter to convert string projectId to object Project
 	@RequestMapping(value="/find/{projectId}") 
 	@ResponseBody
-	public Project findByProjectIdDifferentFormat(@PathVariable("projectId") Long projectId) {
-		return this.projectservice.find(projectId);
+	public Project findByProjectIdReturnJSONFormat(@PathVariable("projectId") Project project) {
+		return project;
 	}
 	
 	@RequestMapping(value="/request")

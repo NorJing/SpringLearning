@@ -15,6 +15,7 @@
 		<property name="converters">
 			<list>
 				<bean class="dyspring.mvc.converters.JulianDateConverter"/>
+				<bean class="dyspring.mvc.converters.ProjectConverter"/>
 			</list>
 		</property>
 	</bean>
