@@ -11,6 +11,7 @@
 
 	<mvc:annotation-driven conversion-service="conversion-service"/>
 	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver"/>
 	<bean id="conversion-service" class="org.springframework.context.support.ConversionServiceFactoryBean">
 		<property name="converters">
 			<list>

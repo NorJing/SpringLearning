@@ -11,9 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class GlobalHandlerExceptionResolver implements HandlerExceptionResolver {
 
 	@Override
-	public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler,
-			Exception ex) {
-		// TODO Auto-generated method stub
+	public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("global_error");
 		return mav;

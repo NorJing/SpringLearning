@@ -27,7 +27,7 @@ var ctx = "${pageContext.request.contextPath}"
 	<div class="container">
 		<div class="row">
 			<spring:url value="/project/add" var="formUrl"/>
-			<form:form modelAttribute="project" action="${formUrl}" method="post" cssClass="col-md-8 col-md-offset-2">
+			<form:form modelAttribute="project" action="${formUrl}" method="post" cssClass="col-md-8 col-md-offset-2" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="project-name">Name</label>
 					<form:input id="project-name" 
@@ -106,10 +106,14 @@ var ctx = "${pageContext.request.contextPath}"
 					<a id="request-link" href="<spring:url value="/project/request" />">Send Request</a> 
 				</div>
 				
+				<div class="form-group">
+					<label for="inputfile">File input</label>
+					<input type="file" name="file">
+				</div>
+					
 				<button type="submit" class="btn btn-default">Submit</button>
 			</form:form>
-
-		</div>
+			
 	</div>
 </body>
 </html>

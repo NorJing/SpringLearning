@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import dyspring.mvc.data.entities.Project;
@@ -110,15 +111,34 @@ public class ProjectController {
 		return "add_project";
 	}
 	
-	@RequestMapping(value="/add")
-	public String saveProject(@Valid @ModelAttribute Project project, Errors errors, RedirectAttributes attribute) {
+	@RequestMapping(value="/upload", method=RequestMethod.POST)
+	public @ResponseBody String handleUpload(@RequestParam("file") MultipartFile file){
+		if(!file.isEmpty()){
+			System.out.println("The file size is " + file.getSize());
+			return "The file size is " + file.getSize();
+		}else{
+			System.out.println("There was a problem");
+			return "There was a problem";
+		}
+	}
+	
+	@RequestMapping(value="/add", method=RequestMethod.POST)
+	public String saveProject(@Valid @ModelAttribute Project project, Errors errors, RedirectAttributes attribute, @RequestParam("file") MultipartFile file) {
 		System.out.println("invoking saveProject");
+		
 		if(!errors.hasErrors()) {
 			System.out.println("The project name is validated.");
 		}else {
 			System.out.println("The project name did not validate!");
 			return "add_project";
 		}
+		
+		if(!file.isEmpty()){
+			System.out.println("The file size is " + file.getSize());
+		}else{
+			System.out.println("The file upload had a problem.");
+		}
+		
 		project.setProjectId(55L);
 		System.out.println(project);
 		this.projectservice.save(project);
