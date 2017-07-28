@@ -1,6 +1,7 @@
 package dyspring.mvc.data.entities;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -29,6 +30,22 @@ public class Project {
 	private boolean special;
 	
 	private String type;
+	
+	private Date startDate;
+	
+	/**
+	 * @return the startDate
+	 */
+	public Date getStartDate() {
+		return startDate;
+	}
+	
+	/**
+	 * @param startDate the startDate to set
+	 */
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
 	
 	private List<String> pointsOfContact;
 	/**
@@ -158,7 +175,8 @@ public class Project {
 	public String toString() {
 		return "Project [projectId=" + projectId + ", name=" + name + ", description=" + description + ", sponsor="
 				+ sponsor + ", authorizedHours=" + authorizedHours + ", authorizedFunds=" + authorizedFunds + ", year="
-				+ year + ", special=" + special + ", type=" + type + ", pointsOfContact=" + pointsOfContact + "]";
+				+ year + ", special=" + special + ", type=" + type + ", startDate=" + startDate + ", pointsOfContact="
+				+ pointsOfContact + "]";
 	}
 	
 	

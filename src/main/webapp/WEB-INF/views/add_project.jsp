@@ -65,8 +65,7 @@ var ctx = "${pageContext.request.contextPath}"
 			
 				<div class="form-group">
 					<label for="hours">Authorized Hours</label>
-					<form:input id="hours"
-						cssClass="form-control" path="authorizedHours"/>
+					<form:input id="hours" cssClass="form-control" path="authorizedHours"/>
 				</div>
 			
 				<div class="form-group">
@@ -76,9 +75,13 @@ var ctx = "${pageContext.request.contextPath}"
 				</div>
 				
 				<div class="form-group">
+					<label for="julian-date">Julian Date</label>
+					<form:input id="julian-date" cssClass="form-control" path="startDate"/>
+				</div>
+				
+				<div class="form-group">
 					<label for="poc">POC</label>
-					<form:input id="poc" 
-							cssClass="form-control" path="pointsOfContact[0]"/>
+					<form:input id="poc" cssClass="form-control" path="pointsOfContact[0]"/>
 				</div>
 
 				<div class="form-group">

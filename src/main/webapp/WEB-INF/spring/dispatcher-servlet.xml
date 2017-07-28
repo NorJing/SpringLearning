@@ -9,7 +9,16 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
-	<mvc:annotation-driven/>
+	<mvc:annotation-driven conversion-service="conversion-service"/>
+	
+	<bean id="conversion-service" class="org.springframework.context.support.ConversionServiceFactoryBean">
+		<property name="converters">
+			<list>
+				<bean class="dyspring.mvc.converters.JulianDateConverter"/>
+			</list>
+		</property>
+	</bean>
+
 
 	<bean class="dyspring.mvc.data.entities.HitCounter" scope="application">
 		<aop:scoped-proxy/>
